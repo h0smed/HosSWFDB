@@ -1,0 +1,386 @@
+<html>
+
+<!-- Made By Hassan Ahmed -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>TV, Podcasts for Gamer - Cloud SWF, Flash Player with Drive</title>
+<meta name="description" content="This online player is a simple and very flexible viewer, player for SWF flash file with Google Drive. Download a swf, flash, and game file from Google Drive, and Play the file directly.">
+<meta name="keywords" content="swf viewer for google drive, cloud swf viewer, cloud swf player, flash viewer, swf player, online flash player, online swf viewer, google drive game, flash viewer for drive, flash player for drive, flash emulator, swf emulator, game tv, gamer podcast">		
+
+<meta property="og:title" content="Cloud SWF, Flash Player with Drive"> 
+<meta property="og:description" content="This online player is a simple and very flexible viewer, player for SWF flash file with Google Drive. Download a swf, flash, and game file from Google Drive, and Play the file directly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="index.html">
+<meta property="og:image" content="img/logo128.png">
+
+<link rel="shortcut icon" href="favicon2.ico">
+<style>
+*{
+	font-size:14px;
+    font-family: Arial, Helvetica, sans-serif; /*Trebuchet MS, Tahoma, Verdana*/
+}
+body{
+	/*background: #e3e3e3;*/
+}
+/*#maintable{
+	background-color: white;
+}*/
+.divopt{
+	/*-webkit-box-shadow: 0 0 10px #999;
+	-moz-box-shadow: 0 0 10px #999;
+	box-shadow: 0 0 10px #999;
+	border: 1px solid transparent;*/	
+}
+A:link    {color:#0860A8;text-decoration:none;}
+A:visited {color:#0860A8;text-decoration:none;}
+A:active  {color:#0860A8;text-decoration:underline;}
+A:hover  {color:#0860A8;text-decoration:underline;}
+
+.head1{
+	font-size:19px;
+	font-weight:bold;
+}
+.head2{
+	font-size:16px;
+	font-weight:bold;
+	color:green;
+}
+.headdesc{
+	/*font-weight:bold;*/
+	color:green;
+}
+.nav{
+	font-size:18px;
+	margin-right:3px;
+}
+.newsmenu{
+	font-size:16px;
+}
+a.newsmenu:link{text-decoration:underline;}
+a.newsmenu:visited{text-decoration:underline;}
+a.newsmenu:active{text-decoration:underline;}
+a.newsmenu:hover{text-decoration:underline;}
+</style>
+
+<script src="js/common2.js" type="text/javascript"></script>
+<script>
+var gadb=false;
+function setstorage(name,value){
+	if (window.localStorage){
+		localStorage[name]=value+'';
+	}else{
+		//setCookie(name, value, 1000*60*60*24*365*10); 
+	}
+}
+function getstorage(name){
+	var s;
+	if (window.localStorage){
+		s=localStorage[name];
+	}else{
+		//s=getCookie(name);
+	}
+	return s;
+}
+</script>
+
+<script>
+window.URL=window.URL || window.webkitURL;
+
+function init(){
+	setCookie("c_last_kind","Gamer_TV_Podcast");
+}
+</script>
+
+</head>
+<body>
+
+<table align=center>
+<tr><td height=5>
+<tr><td align=center>
+	<a href="index.html" title="Go Home" class="toptitle" style="color:#aa2222"><span style="font-size:30px;font-family:Verdana, Arial">Cloud SWF, Flash Player with Drive</span></a>
+<tr><td height=9>
+</table>
+
+<table id="maintable" width=820 align=center class="divopt" style="padding:7px 12px 7px 12px;border:1px solid black;">
+
+
+<tr><td align=center>
+<span>
+<a class='newsmenu' href='index3109.html?kind=Drive_Game' style=''>SWF, Flash Player</a>&nbsp;&nbsp;&nbsp;<a class='newsmenu' href='index2b03.html?kind=Flash_Emulator' style=''>Flash Emulator</a>&nbsp;&nbsp;&nbsp;<a class='newsmenu' href='index5692.html?kind=Gamer_TV_Podcast' style='font-weight:bold'>TV, Podcasts for Gamer</a>&nbsp;&nbsp;&nbsp;</span>
+<tr><td>
+
+
+
+<tr><td align=center>
+
+
+
+
+<tr><td>
+<center>
+<script type="text/javascript">
+google_ad_client = "ca-pub-1113541014872557";
+google_ad_slot = "8550044301";
+google_ad_width = 728;
+google_ad_height = 90;
+</script>
+<script type="text/javascript"
+src="../pagead2.googlesyndication.com/pagead/show_ads.js" onerror="gadb=true;">
+</script>
+</center>
+
+<table align=center><tr>
+<td valign=top>
+	<div id="divmenus" style="width:300px;height:570px;overflow:auto;margin-bottom:5px;"></div>
+
+<td valign=top>
+	<table align=center>
+	<tr><td><div id="resulttitle" style="width:580px;color:#0860A8;font-size:18px">Select a TV, Podcast Channel!!</div>
+	<tr><td><div id="resultdesc" style="width:580px;color:green;font-size:14px"></div>
+	<tr><td><div id="results"></div>
+	<tr><td>	
+		<table><tr>
+		<td>Width <input type='number' id='video_width' min=150 max=800 value="560" style='width:70px' onkeyup="proc_videosize()" onchange="proc_videosize()">
+			Height <input type='number' id='video_height' min=150 max=800 value="380" style='width:70px' onkeyup="proc_videosize()" onchange="proc_videosize()">
+			<button onclick="proc_videodefault()">Default Size</button> <span id="video_size_default" style="display:none"></span>
+		<td>
+			<button onclick="proc_videorefresh()"><img src="images/reload.png" align="absmiddle"> Refresh Video</button>
+			<button onclick="proc_videoclose()"><img src="images/close.png" align="absmiddle"> Close</button>
+		</table>
+	<tr><td>
+		Watch Game TV online and Listen Podcasts. Enjoy a variety of channels!!
+	</table>
+
+
+</table>
+
+<center>
+<script type="text/javascript">
+google_ad_client = "ca-pub-1113541014872557";
+google_ad_slot = "8550044301";
+google_ad_width = 728;
+google_ad_height = 90;
+</script>
+<script type="text/javascript"
+src="../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center>
+
+<textarea id="tvdata" style="display:none">
+{"group_id":"85","id":"85","title":"GAMER TV","name":"GAMER TV","group":"GAMER TV","original_name":"GAMER TV","alias":"gamer-tv","description":"","weight":"43","logo_uri":"http://static.filmon.com/couch/groups/85/logo.png?v2","logo_148x148_uri":"http://static.filmon.com/couch/groups/85/big_logo.png","logos":[{"size":"56x28","url":"http://static.filmon.com/couch/groups/85/logo.png?v2"},{"size":"148x148","url":"http://static.filmon.com/couch/groups/85/big_logo.png"}],"channels":[{"id":1568,"logo":"http://static.filmon.com/couch/channels/1568/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1568/big_logo.png","description":"The leaders in gaming news hand-pick the day's hottest news. Basically, if you've ever wished the Paparazzi would follow around Batman and Zelda, the Daily Fix is for you.","title":"IGN.com - Daily Fix (Video)","group":"GAMER TV","group_id":85,"type":"vod","alias":"igncom-daily-fix-video","is_free":true,"is_free_sd_mode":true,"is_adult":false,"is_interactive":false,"is_vod":true,"is_vox":false,"has_description":true,"has_tvguide":true,"chat_keyword":"filmon_igncom_daily_fix_video","teleport_technology":false},{"id":1576,"logo":"http://static.filmon.com/couch/channels/1576/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1576/big_logo.png","description":"Video Game Reviews... in Video.","title":"Video Reviews - GameTrailers.com","group":"GAMER TV","group_id":85,"type":"vod","alias":"video-reviews-gametrailerscom","is_free":true,"is_free_sd_mode":true,"is_adult":false,"is_interactive":false,"is_vod":true,"is_vox":false,"has_description":true,"has_tvguide":true,"chat_keyword":"filmon_video_reviews_gametrailerscom","teleport_technology":false}],"channels_count":2}
+</textarea>
+<textarea id="tvdata2" style="display:none">
+{"group_id":"85","id":"85","title":"GAMER TV","name":"GAMER TV","group":"GAMER TV","original_name":"GAMER TV","alias":"gamer-tv","description":"","weight":"50","logo_uri":"http://static.filmon.com/couch/groups/85/logo.png?v2","logo_148x148_uri":"http://static.filmon.com/couch/groups/85/big_logo.png","logos":[{"size":"56x28","url":"http://static.filmon.com/couch/groups/85/logo.png?v2"},{"size":"148x148","url":"http://static.filmon.com/couch/groups/85/big_logo.png"}],"channels":[{"id":1567,"logo":"http://static.filmon.com/couch/channels/1567/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1567/big_logo.png","title":"IGN Games Podcasts","alias":"ign-games-podcasts","description":"All of IGN.com's video game podcasts jammed into one feed. It's like one of those little clown cars, but for your ears.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_ign_games_podcasts","recordable":true},{"id":1579,"logo":"http://static.filmon.com/couch/channels/1579/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1579/big_logo.png","title":"Weekend Confirmed: The Video Game Show","alias":"weekend-confirmed-the-video-game-show","description":"Video games from all the platforms are the center of attention for hosts Garnett Lee and Jeff Cannata. Each Friday on their audio podcast they cover the best of what they've played, top news stories, comments from the Shacknews community, opinion, and welcome industry guests.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_weekend_confirmed_the_video_game_show","recordable":true},{"id":1580,"logo":"http://static.filmon.com/couch/channels/1580/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1580/big_logo.png","title":"Rebel FM","alias":"rebel-fm","description":"We play games and talk about them, our lives, and how the two intersect. Usually. And there are jokes.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_rebel_fm","recordable":true},{"id":1569,"logo":"http://static.filmon.com/couch/channels/1569/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1569/big_logo.png","title":"Video Game Outsiders","alias":"video-game-outsiders","description":"Voted PODCAST OF THE YEAR by the Xbox Live Community Awards. Video games, entertaining banter and the occasional pie... Michelle Madison and John Jacobsen, along with Game Radar's Matt Bradford, take you inside the outsider's perspective. From the hilarious (and terribly misnamed) 10-second spotlight to drunken listener calls, this is video gaming from the average player's perspective. Listen every week for a new episode. And check out the forums daily for one of the Internet's largest communities of gamers.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_video_game_outsiders","recordable":true},{"id":1570,"logo":"http://static.filmon.com/couch/channels/1570/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1570/big_logo.png","title":"The Geekbox","alias":"the-geekbox","description":"Are you a geek? Do you like geeky stuff? Do you like listening to other geeks talk about geeky stuff? Join professional nerds Ryan Scott, Karen Chu, Adam Fitch, and Ryan Higgins as they sound off on the latest happenings in the worlds of gaming, film, television, and comics. Head over to www.geekbox.net for the latest -- new episode every Tuesday night!","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_the_geekbox","recordable":true},{"id":1571,"logo":"http://static.filmon.com/couch/channels/1571/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1571/big_logo.png","title":"Player One Podcast","alias":"player-one-podcast","description":"Join ex-game journalists Chris Johnston, Phil Theobald, Greg Sewart and their buddy Mike Phillips as they talk about console/portable/PC games, babies, and the meaning of life.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_player_one_podcast","recordable":true},{"id":1586,"logo":"http://static.filmon.com/couch/channels/1586/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1586/big_logo.png","title":"GeekNights Mondays: Science Technology Computing","alias":"geeknights-mondays-science-technology-computing","description":"GeekNights Mondays is the weekly sci/tech segment of GeekNights, featuring science, technology, computing, and more. We talk Linux, Windows, gadgets, you name it.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_geeknights_mondays_science_technology_computing","recordable":true},{"id":1572,"logo":"http://static.filmon.com/couch/channels/1572/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1572/big_logo.png","title":"Giant Bombcast","alias":"giant-bombcast","description":"The Giant Bomb staff discuss the latest video game news and new releases, taste-test questionable beverages, and get wildly off-topic in this weekly podcast.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_giant_bombcast","recordable":true},{"id":1581,"logo":"http://static.filmon.com/couch/channels/1581/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1581/big_logo.png","title":"Major Nelson Radio","alias":"major-nelson-radio","description":"The (sometimes) weekly podcast from directly from inside Xbox.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_major_nelson_radio","recordable":true},{"id":1578,"logo":"http://static.filmon.com/couch/channels/1578/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1578/big_logo.png","title":"Fast Karate for the Gentleman","alias":"fast-karate-for-the-gentleman","description":"A stupid podcast about Japanese cartoons and vidjergames.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_fast_karate_for_the_gentleman","recordable":true},{"id":1577,"logo":"http://static.filmon.com/couch/channels/1577/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1577/big_logo.png","title":"PC Gamer » US Podcast","alias":"pc-gamer-us-podcast","description":"The number one source of PC gaming reviews, previews and news online","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_pc_gamer_us_podcast","recordable":true},{"id":1575,"logo":"http://static.filmon.com/couch/channels/1575/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1575/big_logo.png","title":"Official Xbox Magazine","alias":"official-xbox-magazine","description":"KOXM Radio is the official weekly podcast of Official Xbox Magazine","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_official_xbox_magazine","recordable":true},{"id":1573,"logo":"http://static.filmon.com/couch/channels/1573/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/1573/big_logo.png","title":"4Player Podcast","alias":"4player-podcast","description":"Now with more acrobatic bears!","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"vox","is_free":true,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":true,"has_tvguide":true,"chat_keyword":"filmon_4player_podcast","recordable":true},{"id":728,"logo":"http://static.filmon.com/couch/channels/728/logo.png?v2","big_logo":"http://static.filmon.com/couch/channels/728/big_logo.png","title":"The Miki Show","alias":"the-miki-show","description":"All the latest video game reviews.","has_description":true,"group":"GAMER TV","group_id":85,"group_alias":"gamer-tv","type":"standard","is_free":false,"is_free_sd_mode":true,"free_sd":true,"is_adult":false,"adult_content":false,"is_interactive":false,"is_vod":false,"is_vox":false,"has_tvguide":true,"chat_keyword":"filmon_the_miki_show","recordable":true}],"channels_count":18}
+</textarea>
+
+<script>
+function proc_videosize(){
+	var w=parseInt(_getid("video_width").value);
+	var h=parseInt(_getid("video_height").value);
+	if (!w || isNaN(w)) w=0;
+	if (!h || isNaN(h)) h=0;
+	if (w<150) w=150;
+	if (w>800) w=800;
+	if (h<150) h=150;
+	if (h>800) h=800;
+
+	setCookie("video_width",w);
+	setCookie("video_height",h);
+	
+	var a=_getid("player");
+	if(a){
+		a.style.width=w+"px";
+		a.style.height=h+"px";
+	}
+}
+var g_last_playerid;
+function proc_videoclose(){
+	_getid("results").innerHTML="";
+}
+function proc_videorefresh(){
+	if(g_last_playerid){
+		proc_play(false,g_last_playerid);
+	}
+}
+function proc_videodefault(){
+	_getid("video_width").value=560;
+	_getid("video_height").value=380;
+	proc_videosize();
+}
+function proc_imgerr(f){
+	f.onerror=null;
+	f.src="images/article.png";
+}
+function proc_load(){
+	var s1="<table>";
+
+function make(id,name){
+	var s=_getid(id).value;
+	var a={};
+	try{
+		a=JSON.parse(s);
+	}catch(err){
+		a={};
+	}
+	if(!a) a={};
+	//console.log(a);
+	
+	if(name){
+		s1+="<tr><td colspan=2 height=5><tr><td colspan=2><font style='font-size:16px;color:green;font-weight:bold'>"+name+"</font>";
+	}
+
+	var s2,title,title2;
+	for(var j = 0; j < a.channels.length; j++){
+		//if(a.channels[j].is_vod || a.channels[j].is_vox) continue;
+
+		title=a.channels[j].title;
+		if(!title) title='';
+		title=trim(title.replace(/FilmOn/gi,""));
+		title2="";
+		title=html_entity_encode(title);
+
+		if(a.channels[j].is_vod || a.channels[j].is_vox){
+			title+=" <font color=green>(VOD)</font>";
+			title2=a.channels[j].title || "";
+		}
+		//else title+=" <font color=red>(Live)</font>";		
+		if(!a.channels[j].description) a.channels[j].description=title;
+		a.channels[j].description=html_entity_encode(a.channels[j].description);
+		title2=html_entity_encode(title2);
+
+		s2='<a href="#" onclick="proc_play(this, '+a.channels[j].id+');return false;" title="'+a.channels[j].description+'" cid="'+a.channels[j].id+'" data="'+title+'" data2="'+title2+'">';
+		s1+="<tr>";
+		s1+='<td>'+s2+'<img data="'+a.channels[j].logo+'" border=0 onerror="proc_imgerr(this)" width=56 height=28></a>';
+		s1+='<td>'+s2+title+'</a>';
+	}
+}
+	make("tvdata","Gamer TV 1");
+	make("tvdata2","Gamer TV 2");
+
+	s1+="</table>";
+
+	var a=_getid("divmenus");
+	a.onscroll=null;
+	a.innerHTML=s1;
+	a.scrollTop=0;
+	proc_loadimg();
+	a.onscroll=function(){
+		proc_loadimg();
+	}
+
+	var w=getCookie("video_width");
+	var h=getCookie("video_height");
+	if (!w || isNaN(w)) w=560;
+	if (!h || isNaN(h)) h=380;
+	_getid("video_width").value=w;
+	_getid("video_height").value=h;
+}
+
+function proc_loadimg(){
+	var c=_getid('divmenus');
+	var dt=c.scrollTop;
+	var db=c.scrollTop+c.offsetHeight;
+	var dy;	
+
+	var a=c.getElementsByTagName('IMG');	
+	for(var i = 0; i < a.length; i++){ 
+		if (a[i].src) continue;
+		var b=a[i];		
+		dy=0;
+		while(b){
+			if(isNaN(b.offsetTop)) break;
+			dy+=b.offsetTop;
+			if(b.parentNode==c){
+				break;
+			}
+			b=b.offsetParent;
+		}
+		if (dy>=dt && dy<=db){
+			var b=a[i].getAttribute('data');
+			if(b){
+				a[i].src=b;
+			}
+		}
+	}	
+}
+
+function proc_play(f,id){
+	var refresh=false;
+	if(!f){
+		refresh=true;
+		var a=_getid("divmenus").getElementsByTagName('A');	
+		for(var i = 0; i < a.length; i++){ 
+			if(a[i].getAttribute("cid")==id){
+				f=a[i];
+				break;
+			}
+		}		
+	}
+	var w=getCookie("video_width");
+	var h=getCookie("video_height");
+	if (!w || isNaN(w)) w=560;
+	if (!h || isNaN(h)) h=380;
+	
+	g_last_playerid=id;
+	if(f && f.getAttribute("data2")){
+		var surl="http://podcastapp.ehubsoft.net/embed/?title="+encodeURIComponent(f.getAttribute("data2"))+"&kind=9,&filmonid="+id;
+		if(refresh) surl+="&refresh=1";
+		var s='<iframe id="player" frameborder="0" marginwidth="0" marginheight="0" scrolling="NO" allow="autoplay; fullscreen" allowfullscreen="true" width="'+w+'" height="'+h+'" src="'+surl+'"></iframe>';
+	}else{
+		var s='<iframe id="player" frameborder="0" marginwidth="0" marginheight="0" scrolling="NO" allow="autoplay; fullscreen" allowfullscreen="true" width="'+w+'" height="'+h+'" src="https://www.filmon.com/tv/channel/export?channel_id='+id+'"></iframe>';
+	}
+	_getid("results").innerHTML=s;	
+	if(f){
+		var title=f.getAttribute("data");
+		_getid("resulttitle").innerHTML=title;
+		_getid("resultdesc").innerHTML=shortstring(f.title || '',500);
+
+		var a=_getid("divmenus");
+		a=a.getElementsByTagName('A');
+		for(var i = 0; i < a.length; i++){
+			a[i].style.fontWeight="";
+			if(a[i].getAttribute("data")==title){
+				a[i].style.fontWeight="bold";
+			}
+		}
+	}
+}
+
+function init_podcast(){
+	proc_load();
+}
+init_podcast();
+</script>
+
+
+
+<tr><td height=1>
+</table>
+
+<script>
+init();
+</script>
+
+<table align=center cellspacing=0 cellpadding=0>
+<tr><td><style>
+a.bottomlink:link{text-decoration:underline;}
+a.bottomlink:visited{text-decoration:underline;}
+a.bottomlink:active{text-decoration:underline;}
+a.bottomlink:hover{text-decoration:underline;}
+</style>
+
+<table id="bottomtable" align=center>
+<tr><td height=7>
+<tr><td align=center><span id="bottomtitle">2021, ⓒ fullstacks, soft & apps</span>
+	</table></table>
+<script>
+var a=_getid("bottomtable");
+if(a) a.setAttribute('style','margin-top:-7px');
+</script>
+
+<br>
+</body>
+
+<!-- Made By Hassan Ahmed -->
+</html>
