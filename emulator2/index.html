@@ -1,0 +1,356 @@
+<html>
+
+<!-- Made By Hassan Ahmed -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">			
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Flash Emulator</title>
+<meta name="google" content="notranslate">
+<meta name="description" content="Flash Emulator is a Flash VM and runtime renderer for the SWF file format without Adobe Flash installed. It can be an appropriate online previewer to check the contents of Flash files without Adobe Flash installed.">
+<meta name="keywords" content="flash emulator, swf emulator, online flash emulator, flash vm emulator, flash to html5, flash viewer, flash reader, swf to html5, swf viewer">
+
+<link rel="shortcut icon" href="favicon.html">
+
+<style>
+body,table,td {
+	font-size:14px;
+    font-family: Arial, Helvetica, sans-serif; /*Trebuchet MS, Tahoma, Verdana*/
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+A:link    {color:#0000ff;text-decoration:none;}
+A:visited {color:#0000ff;text-decoration:none;}
+A:active  {color:#0000ff;text-decoration:underline;}
+A:hover  {color:#0000ff;text-decoration:underline;}
+#btn_stop{
+	color:#aa2222;
+}
+#btn_stop:disabled{
+	color: #9E6363;
+}
+</style>
+
+</head>
+<body>
+
+<div id="topmenu" style="width:99%;">
+<table style="white-space:nowrap"><tr>
+<td><button id="btn_stop" onclick="proc_stop()" disabled=true title="Stop and Close the current flash" style="">Stop</button>
+<button id="btn_refresh" onclick="proc_refresh()" disabled=true title="Refresh the current flash">Refresh</button>
+<td><div id="dfile1" style="display:inline"></div>
+<td>(New Version) Drop a swf file here.
+<td>
+<td><div id="msg1"></div>
+<td><div style="display:none"><input type=text style="width:100px" id="url"> <button onclick="proc_openurl()">Open from URL</button></div>
+</table>
+</div>
+
+<iframe id="viewer" src="#" style="width:100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="NO" allow="autoplay; fullscreen" allowfullscreen="true"></iframe>
+<textarea id="script1" style="display:none">
+<script>
+function proc_loaded(){
+	document.getElementById('loading').style.display='none';
+}
+function init(){
+	window.addEventListener('click',function(e){
+		window.focus();
+	},false);
+}
+init();
+</script>
+</textarea>
+
+<style>
+.hover { border: 2px dashed #333; }
+</style>
+<script>
+function _getid(id){
+	return document.getElementById(id);
+}
+function _getfrmdoc(ifrm){
+	return (ifrm.contentWindow) ? ifrm.contentWindow : (ifrm.contentDocument.document) ? ifrm.contentDocument.document : ifrm.contentDocument;
+}
+function number_format(number, decimals, dec_point, thousands_sep) {
+  number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+  var n = !isFinite(+number) ? 0 : +number,
+    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    s = '',
+    toFixedFix = function (n, prec) {
+      var k = Math.pow(10, prec);
+      return '' + Math.round(n * k) / k;
+    };
+  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+  if (s[0].length > 3) {
+    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+  }
+  if ((s[1] || '').length < prec) {
+    s[1] = s[1] || '';
+    s[1] += new Array(prec - s[1].length + 1).join('0');
+  }
+  return s.join(dec);
+}
+
+function proc_resize(){
+function getWindowHeight(){
+    var windowHeight = 0;
+    if (typeof(window.innerHeight) == 'number'){
+        windowHeight = window.innerHeight;
+    }else{
+        var ieStrict = document.documentElement.clientHeight; 
+        var ieQuirks = document.body.clientHeight;
+        windowHeight = (ieStrict > 0) ? ieStrict : ieQuirks;
+    }
+	if(!windowHeight) windowHeight=0;
+    return windowHeight;
+}
+	var h=getWindowHeight()-_getid('topmenu').offsetHeight-4;
+	_getid("viewer").style.height=h+"px";
+}
+
+var g_content={};
+function proc_stop(){
+	var a=_getid("viewer");
+	var ifrm2 = _getfrmdoc(a);
+	if(ifrm2) ifrm2.location.replace('about:blank');
+}
+function proc_refresh(){
+	var a=_getid("viewer");
+	//a.src="viewer.html";
+	if(g_content.embedsrc){
+		var ifrm=_getfrmdoc(a);
+		if(ifrm){
+			ifrm.document.open();
+			ifrm.document.write(g_content.embedsrc);
+			ifrm.document.close();			
+		}
+	}
+}
+var gmaxsize=60;
+function proc_open(blob){
+	if(blob.size>gmaxsize*1024*1024){
+		alert('The file size is too large to view. (around '+gmaxsize+' MB limit)');
+		return;
+	}
+	if(g_content.bloburl) window.URL.revokeObjectURL(g_content.bloburl);
+	g_content.bloburl=window.URL.createObjectURL(blob);	
+	var a=_getid("viewer");
+	//a.src="viewer.html";
+
+	var s1='<html><body><style>body,table,td {font-size:14px; font-family: Arial, Helvetica, sans-serif;}</style>';
+	s1+='<table id="loading" style="position:absolute;left:10px;top:20px;background: white;padding:3px;border:0px solid silver;-webkit-box-shadow: 0 0 10px #999;-moz-box-shadow: 0 0 10px #999; box-shadow: 0 0 10px #999;"><tr>';
+	s1+='<td><img src="../../iblogbox.github.io/js/img/etc/wait.gif">';
+	s1+='<td>Loading library... Please wait a moment.</table>';
+	s1+='<embed width="100%" height="100%" src="'+g_content.bloburl+'" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="never">';
+	s1+=_getid('script1').value;
+	s1+='<scr'+'ipt src="http://iblogbox.github.io/js/img/swf/ruffle_latest/ruffle.js"></scr'+'ipt>';
+	s1+='</body></html>';
+	g_content.embedsrc=s1;
+
+	var ifrm=_getfrmdoc(a);
+	if(ifrm){
+		a.onload=function(){
+			a.onload=null;
+			ifrm.document.open();
+			ifrm.document.write(s1);
+			ifrm.document.close();			
+		}
+		ifrm.location.replace('about:blank');
+	}
+
+	_getid('btn_stop').disabled=false;
+	_getid('btn_refresh').disabled=false;
+}
+
+var gd_isdownloading, gd_lastprogress;
+function show_message(s){
+	_getid('msg1').innerHTML=s;
+}
+function hide_message(){
+	_getid('msg1').innerHTML='';
+}
+function proc_openurl(url, isdirect){
+	var downloadurl;
+	if(url){
+		downloadurl=url;
+	}else{
+		downloadurl=_getid('url').value;
+	}
+	if(!downloadurl)return;
+
+	if(gd_isdownloading){
+		alert("It's working. Please try again later. or Cancel the current job.");
+		return;
+	}
+			function end(){
+				gd_isdownloading=false;
+				hide_message();
+			}
+			function error(s){
+				alert(s);
+			}
+			try{
+					gd_isdownloading=true;
+					show_message("<table cellpadding=0 cellspacing=0><tr><td><div id='gd_progress'>Downloading...</div><td>&nbsp; <a href='#' id='gd_cancel' style='color:#0000ff'>Cancel</a></table>");
+				    var xhr = new XMLHttpRequest();
+					var c=_getid('gd_cancel');
+					if(c){
+						c.onclick=function(){
+							xhr.abort(); 
+							end();
+							return false;
+						}
+					}
+					gd_lastprogress=(new Date()).getTime();
+					var su=downloadurl || '';
+					var atoken='';
+					if(isdirect!='yes'){
+						su='https://speedtesting.herokuapp.com/proxyrss/geturl2.php?max=12&amp;url='+encodeURIComponent(su);
+					}else{
+						var arr=su.split("&access_token=");
+						if(arr.length==2){
+							su=arr[0];
+							atoken=arr[1];
+						}
+					}
+					xhr.open('GET.html', su);
+					xhr.responseType = 'arraybuffer';
+					if(atoken){
+						xhr.setRequestHeader('Authorization', 'Bearer ' + atoken);
+					}
+					xhr.onprogress=function(event){
+						if(gd_lastprogress){
+							var elaspetime = new Date();
+							var dt=(elaspetime.getTime()-gd_lastprogress)/1000;
+							if(dt<1)return;
+							gd_lastprogress=elaspetime.getTime();
+						}
+						var a=event;
+						var total=a.totalSize || a.total || 0;
+						if(total>=18446744073709552000) total=0;
+						var current=a.position || a.loaded  || 0;
+						var c=_getid('gd_progress');
+						if(c) c.innerHTML='Downloading... ('+number_format(current)+'/'+number_format(total)+')';
+					};
+				    xhr.onload = function(){
+						end();
+						if(this.status == 200){
+							var blob = new Blob([this.response], {type : "application/x-shockwave-flash"});
+							if(blob.size<6){
+								alert('This file is invalid file, or It exceeds the file size limt. The maximum download size is about 12 megabytes.');
+								return;
+							}
+							proc_open(blob);
+						}else{
+							var s="Error (status) " + this.status + "("+this.statusText+") occurred while receiving the file.";
+							error(s);
+						}
+					};
+					xhr.onerror = function(e){      
+						end();
+						var s="Error " + e.target.status + " occurred while receiving the file.";
+						error(s);
+					};
+					xhr.send();
+			}catch(err){
+				end();
+				error(err+'\n\nor This browser does not support. Please upgrade your browser.');
+			}
+}
+
+function handleFileSelect(files) {
+	if(!window.FileReader){
+		alert("This browser does not support.");
+		return;
+	}
+	if(!files || files.length==0) return;	
+	var f=files[0];	
+	proc_open(f);	
+}
+function init_load(){
+	proc_resize();
+	if (window.addEventListener) window.addEventListener("resize", proc_resize, false);
+	else if (window.attachEvent) window.attachEvent("onresize", proc_resize);
+
+	_getid("dfile1").innerHTML='<input type="file" id="fileload1" name="files[]" multiple style="width:190px" title="Get a SWF Flash file from your computer. Drop a file on this page." accept=".swf">';
+	_getid('fileload1').onchange=function(e){
+		if(!e || !e.target){
+			alert("This browser does not support.");
+			return;
+		}
+		handleFileSelect(e.target.files);
+	}
+	var holder = document;
+	holder.ondragover = function(e){ 
+		_getid('topmenu').className = 'hover'; 
+		try{var ua=navigator.userAgent;
+			if(ua && ua.indexOf("Chrome")>=0){					
+				if(e.originalEvent) e = e.originalEvent;
+				if(e.dataTransfer){
+					var b = e.dataTransfer.effectAllowed;
+					e.dataTransfer.dropEffect = ('move' === b || 'linkMove' === b) ? 'move' : 'copy';
+				}
+			}
+		}catch(err){}
+		return false; 
+	};
+	holder.ondragend = function(){ _getid('topmenu').className = '';return false; };
+	holder.ondrop = function (e){
+		_getid('topmenu').className = '';
+		e.preventDefault();				
+		handleFileSelect(e.dataTransfer.files);
+		return false;
+	};
+	var url="";
+	var isdirect="";
+	if(url){
+		proc_openurl(url, isdirect);
+	}
+
+	document.onkeydown = function(evt) {
+		evt = evt || window.event;
+		if(!evt)return;
+		var keyCode = evt.keyCode;
+		var charCode= evt.charCode;
+		if((keyCode >= 37 && keyCode <= 40) || keyCode==33 || keyCode==34){
+			return false;
+		}else if((charCode >= 37 && charCode <= 40) || charCode==33 || charCode==34){
+			return false;
+		}
+	}
+	window.onbeforeunload=function(){
+		if(g_content && g_content.bloburl) window.URL.revokeObjectURL(g_content.bloburl);
+	}
+}
+init_load();
+
+function proc_openurl_direct(s){
+	var s1=(s || '').split("?")[1];
+	if(!s1)return;
+	var arr1=s1.split("&");
+	var arr2,url,isdirect;
+	for(var i = 0; i < arr1.length; i++){    
+		arr2=arr1[i].split("=");
+		if(arr2[0]=='url'){
+			url=decodeURIComponent(arr2[1] || '');
+		}else if(arr2[0]=='isdirect'){
+			isdirect=decodeURIComponent(arr2[1] || '');
+		}
+	}
+	if(url){
+		proc_openurl(url, isdirect);
+	}
+}
+</script>
+<script src="../../storage.googleapis.com/app0126/js/compat2.js"></script>
+<script>init_compat201912_a();</script>
+
+</body>
+
+<!-- Made By Hassan Ahmed -->
+</html>
