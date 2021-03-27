@@ -64,25 +64,7 @@ a.newsmenu:hover{text-decoration:underline;}
 </style>
 
 <script src="js/common2.js" type="text/javascript"></script>
-<script>
-var gadb=false;
-function setstorage(name,value){
-	if (window.localStorage){
-		localStorage[name]=value+'';
-	}else{
-		//setCookie(name, value, 1000*60*60*24*365*10); 
-	}
-}
-function getstorage(name){
-	var s;
-	if (window.localStorage){
-		s=localStorage[name];
-	}else{
-		//s=getCookie(name);
-	}
-	return s;
-}
-</script>
+
 
 <script>
 window.URL=window.URL || window.webkitURL;
@@ -410,8 +392,7 @@ function proc_loadscript(src,callback_ok,callback_err){
 	}
 }
 function proc_loadgame(url, resp, ishistory){
-	if(gadb){alert('Please disable the adblock for free use.');return;}	
-	var sel_emulator=_getid('sel_emulator').value;
+
 	if(window.WebAssembly && sel_emulator=='emu2' && !script2){
 		proc_loadscript('emulator2/emu2b73c.html?t=1',function(){
 			proc_loadgame(url, resp, ishistory);
@@ -761,7 +742,7 @@ function gd_pickercallback(data) {
 	}
 }
 function gd_loadfile(fileId,mresp){
-	if(gadb){alert('Please disable the adblock for free use.');return;}	if(gd_isdownloading){
+		if(gd_isdownloading){
 		alert("It's downloading. Please try again in a few minutes. or Cancel the current download.");
 		return;
 	}
